@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Linux - tietoturva</title>
+    <link rel="stylesheet" type="text/css" href="linux_tyylit.css">
+</head>
+<body>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">^</button>
+    <div class="header">
+        <h1>Keepass - salasanat ja tietoturva Linuxissa</h1>
+    </div>
+
+    <div class="topnav">
+        <a href="etusivu.html">Etusivu</a>
+        <a class="active" href="tietoturva.html">Tietoturva</a>
+        <a href="salasana.html">Salasanat haltuun</a>
+        <a href="asennus.html">KeePass asennus</a>
+        <a href="kaytto.html">KeePass käyttö</a>
+        <a href="vaihtoehto.html">TOP5 KeePass vaihtoehdot</a>
+        <a href="lahteet.html">Lähteet</a>
+    </div>
+
+    <div class="subnav" id="subnav">
+        <a href="#paivitykset">Tietoturvapäivitykset</a>
+        <a href="#skannerit">Virusskannerit</a>
+        <a href="#rootkit">Vakoiluohjelmien etsijät</a>
+        <a href="#yhteenveto">Yhteenveto</a>
+    </div>
+
+    <div class="content">
+        <p>Yleisellä tasolla tietoturva on Linuxissa hyvällä tasolla Unixin rakenteen ja vapaiden ohjelmien ansiosta. On silti erittäin tärkeätä pitää huolta 
+            tietoturvan perusteista, joita ovat käyttäjätunnukset, salasanat, palomuuri ja virusskannerit.  
+            Suurimmat riskit tietoturvaan liittyvät kuitenkin palveluiden säätö- ja ohjelmointivirheisiin sekä selainten tietoturva-aukkoihin. 
+            Järjestelmän päivittäminen säännöllisesti pitää tietoturvaa yllä. Tietoturvaan saadaan lisävarmuutta käyttämällä palomuuria, TCP Wrapperia, 
+            SELinuxia tai IDSia, jotka ovat yleensä aina päällä.<br>
+            <br>
+        </p>
+        <p>
+            <h3 id="paivitykset">Tietoturvapäivitykset</h3>
+            
+            Kun päivityksiä on saatavilla, näkyy työpöydän ilmoitusalueella siitä kertova kuvake. Päivitysten asentaminen onnistuu yleensä napsauttamalla 
+            tätä kuvaketta tai käyttäen päivitysohjelmaa, joka löytyy valikon polusta Järjestelmä->Ylläpito->Päivitysten hallinta.<br>
+            <br>
+            Päivityksen voi tehdä myös terminaalia käyttäen seuraavia vaiheita seuraamalla.<br>
+            <br>
+            Päivitetään pakettitietokanta:<br>
+            <br>
+            <b>sudo aptitude update  tai sudo apt update</b><br>
+            <br>
+            Asennetaan päivitykset:<br>
+            <br>
+            <b>sudo aptitude upgrade tai sudo apt upgrade -y</b> (-y asentaa päivitykset automaattisesti)<br>
+            <br>    
+            Päivitys uuteen versioon:<br>
+            <br>
+            <b>sudo do-release-upgrade tai sudo do-release-upgrade -d</b> (jos haluaa uusimman kehittyneen version käyttöön, lisätään perään vipu -d)<br>
+            <br>
+        </p>
+        <p>
+            <h3 id="skannerit">Virusskannerit</h3>
+        
+            Virusskanneria suositellaan käytettäväksi, jos samassa tietokoneessa on asennettuna Windows-käyttöjärjestelmä, jonka levyosiolla olevia tiedostoja 
+            Linuxilla käytetään tai Linux toimii palvelimena, jonka kautta Windows-koneilla on pääsy Internetiin. Vaikka virus tai haittaohjelma ei Linuxia haittaisikaan, 
+            se voi kulkeutua Linuxin kautta Windowsiin.<br>
+            <br>
+            Linuxiin on saatavilla useita virusskanneria, joista tässä mainittakoon F-prot ja ClamAV.  AVScan on Gnome-työpöytäympäristöön suunniteltu graafinen käyttöliittymä ClamAV-ohjelmaan. <br>
+            <br>
+            ClamAV:n ja AVScanin asentaminen terminaalissa:<br>
+            <br>
+            <b>sudo apt-get update</b><br>
+            <b>sudo apt-get install clamav avscan</b><br>
+            <br>
+            Ellei ohjelman pikakuva ilmesty ohjelmavalikkoihin, saat ohjelman käynnistymään kirjoittamalla komentokehotteeseen seuraavan komennon:<br>
+            <br>
+            <b>avscan</b><br>
+            <br>
+            AVScan ei käynnisty itsenäisesti koneen käynnistyessä, vaan se täytyy ajaa erikseen joka kerta. Jos haluat päivittää virustietokannat, saatat joutua käynnistämään 
+            AVScanin sudo-komennolla terminaalissa:<br> 
+            <br>
+            <b>sudo avscan</b><br>
+            <br>
+          </p>
+          <p>
+            <h3 id="rootkit">Vakoiluohjelmien etsijät (rootkit)</h3>
+            
+            Asenna vakoiluohjelmien etsijät kirjoittamalla terminaaliin komento:<br>
+            <br>
+            <b>sudo apt-get install chkrootkit rkhunter</b><br> 
+            <br>
+            Käynnistä chkrootkit kirjoittamalla terminaaliin:<br>
+            <br>
+            <b>chkrootkit</b><br>
+            <br>
+            Käynnistä Rootkithunter kirjoittamalla terminaalissa:<br>
+            <br>
+            <b>rkhunter -c</b><br>
+            <br>
+            <h3 id="yhteenveto">Yhteenveto</h3>
+            
+            Asenna yhdellä terminaalikomennolla kaikki edellä mainitut ohjelmat.<br>
+            <br>
+            <b>sudo apt-get install clamav avscan chkrootkit rkhunter</b> <br>
+            <br>
+           
+        </p>
+        
+    </div>
+    <div class="footer">
+      <p>Tekijä: Leena Pasanen <br>
+    </div>
+   
+
+</body>
+
+<script>
+    function scrollToSection(id){
+  
+  id = id.replace("link", "");
+ 
+  $('html,body').animate({
+    scrollTop: $("#"+id).offset().top},
+    'slow');
+}
+
+var mybutton = document.getElementById("myBtn");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 180 || document.documentElement.scrollTop > 180) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+</script>
+
+</html>

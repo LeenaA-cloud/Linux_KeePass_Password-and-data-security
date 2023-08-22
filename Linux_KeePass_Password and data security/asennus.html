@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Linux - asennus</title>
+    <link rel="stylesheet" type="text/css" href="linux_tyylit.css">
+</head>
+<body>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">^</button>
+    <div class="header">
+        <h1>Keepass - salasanat ja tietoturva Linuxissa</h1>
+    </div>
+
+    <div class="topnav">
+        <a href="etusivu.html">Etusivu</a>
+        <a href="tietoturva.html">Tietoturva</a>
+        <a href="salasana.html">Salasanat haltuun</a>
+        <a class="active" href="asennus.html">KeePass asennus</a>
+        <a href="kaytto.html">KeePass käyttö</a>
+        <a href="vaihtoehto.html">TOP5 KeePass vaihtoehdot</a>
+        <a href="lahteet.html">Lähteet</a>
+    </div>
+
+    <div class="content">
+        <p>KeePass on salasanojen hallintaohjelma, joka lukitsee kaikki käyttäjätunnukset ja salasanat yhden salasanan taakse. Kaikki tunnukset voidaan tallentaa yhteen tietokantaan, joka 
+            lukitaan salasanalla tai avainlevyllä. KeePass on avoimen lähdekoodin ilmainen salasanojen hallintatyökalu, jota suositellaan monien tietoturva-asiantuntijoiden toimesta. 
+           Tietokanta on salattu parhailla ja turvallisimmilla salaus algoritmeillä (AES ja Twofish). KeePassia on selkeä ja helppo käyttää. </p>
+        <p>
+            <br>
+            <h3>Rekisteröi KeePass arkistoon</h3>
+            Ensimmäisessä vaiheessa lisätään jtaylor / keepass-arkisto järjestelmään. Seuraava komento lisää arkiston lähteisiin, joten Ubuntu tietää etsiä päivityksiä kyseiseltä PPA:lta sekä 
+            virallisilta Ubuntu-lähteiltä. Syötä terminaaliin:<br>
+            <br> 
+            <b>sudo apt-add-repository ppa:jtaylor/keepass</b><br>
+            <br>
+            <img src="asennus1.png"><br>
+            <br>
+            Päivitä nyt tietokanta siitä, mitkä paketit voidaan asentaa ja mistä ne voidaan asentaa. Tällöin apt-get näkee äskettäin lisätyn PPA:n ja huomaa, että ppa: jtaylor / keepassilla 
+            on uusin KeePass2-versio, josta se tietää, joten se tekee muistiinpanon KeePassin asentamasta PPA:sta seuraavan kerran, kun joku pyytää. Asenna se komennolla:<br>
+            <br> 
+            <b>sudo apt-get update</b><br>
+            <br>
+            <img src="asennus2.png">
+            
+        </p>
+        <br>
+        <p>
+            <h3>Asenna KeePass2</h3>
+            Nyt kun KeePass-arkisto on nyt käytettävissä, apt-get pystyy ratkaisemaan riippuvuutemme asentamalla viimeisimmän version säilöstä saatavilla olevasta keepassista seuraavalla terminaalikomennolla:<br>
+            <br>
+            <b>sudo apt-get install keepass2</b><br>
+            <br>
+            <img src="asennus3.png"><br>
+            <br>
+            Tämä kestää jonkin aikaa, kunnes asennus on valmis, voidaan etsiä KeePass-sovellusta ubuntu-kojelaudasta:<br>
+            <br>
+            <img src="asennus4.png">
+
+        </p>
+
+        
+    </div>
+    <div class="footer">
+      <p>Tekijä: Leena Pasanen <br>
+    </div>
+
+    
+</body>
+
+<script>
+    function scrollToSection(id){
+  
+  id = id.replace("link", "");
+ 
+  $('html,body').animate({
+    scrollTop: $("#"+id).offset().top},
+    'slow');
+}
+
+var mybutton = document.getElementById("myBtn");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 180 || document.documentElement.scrollTop > 180) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+</script>
+
+</html>

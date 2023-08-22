@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Linux - käyttö</title>
+    <link rel="stylesheet" type="text/css" href="linux_tyylit.css">
+</head>
+<body>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">^</button>
+    <div class="header">
+        <h1>Keepass - salasanat ja tietoturva Linuxissa</h1>
+    </div>
+
+    <div class="topnav">
+        <a href="etusivu.html">Etusivu</a>
+        <a href="tietoturva.html">Tietoturva</a>
+        <a href="salasana.html">Salasanat haltuun</a>
+        <a href="asennus.html">KeePass asennus</a>
+        <a class="active" href="kaytto.html">KeePass käyttö</a>
+        <a href="vaihtoehto.html">TOP5 KeePass vaihtoehdot</a>
+        <a href="lahteet.html">Lähteet</a>
+    </div>
+
+    <div class="subnav">
+        <a href="#luominen">KeePass tietokannan luominen</a>
+        <a href="#lisaaminen">Salasanan lisääminen tietokantaan</a>
+        <a href="#kayttaminen">KeePass tietokannan käyttäminen</a>
+    </div>
+
+    <div class="content">
+        <p>Nyt kun KeePass on asennettu, ollaan askel lähempänä käytön aloitusta. Ennen kuin kuitenkaan päästään syöttämään salasanoja KeePassin holviin säilöön, täytyy tehdä muutamia 
+            aloitus- ja asennusmäärityksiä. Seuraavassa askel askeleelta ohjeet KeePassin käyttöön. </p>
+        <p>
+            <h3 id="luominen">KeePass tietokannan luominen</h3>
+            Käynnistä KeePass-ohjelma. Valitse <b>File > New.</b><br>
+            <br>
+            <img src="kaytto1.png"><br>
+            <br>
+            Tallenna tietokanta turvalliseen paikkaan, esimerkiksi omalle K-levyllesi.<br>
+            <br>
+            <img src="kaytto2.png"><br>
+            <br>
+            Täytä <b>Master password</b> -kohta.  Se on salasana, jolla myöhemmin saat auki koko tietokannan ja sen sisältämät salasanat.<br>
+            <br>
+            Halutessa voidaan valita myös kohdat <b>Key file / provider</b> ja <b>Windows user account</b>, mutta silloin tarvitaan ne kaikki, jotta voidaan avata tietokanta. Normaalikäytössä riittää salasanan käyttäminen.<br>
+            <br>
+            Windows user account -vaihtoehtoa ei kuitenkaan suositella, koska tällöin salasanatietokanta ei ole siirrettävissä toiselle koneelle. Jos haluat käyttää KeePassia myös kotikoneella, 
+            niin saman nimisen tunnuksen luominen siihen ei auta. Eli suosittelemme vain salasanaa tai salasanan ja key filen yhdistelmää. Vahvista valinta klikkaamalla OK.<br>
+            <br>
+            Voit antaa tietokannalle nimen, kuvauksen ja määritellä muita tietoja. Klikkaa OK.<br>
+            <br>
+            <img src="kaytto3.png"><br>
+            <br>
+            Tietokanta avautuu. Kannassa on valmiina kaksi mallitiedostoa.<br>
+            <br>
+            <img src="kaytto4.png"><br>
+       </p>
+       <br>
+       <p>
+           <h3 id="lisaaminen">Salasanan lisääminen tietokantaan</h3>
+            Avaa <b>Entry > Add Entry.</b><br>
+            <br>
+            <img src="kaytto5.png"><br>
+            <br>
+            Täytä kentät. Klikkaamalla (1) näet salasanat selväkielisenä. Voit asettaa tiedoille päättymisajan kohdasta (2).<br>
+            Klikkaa OK.<br>
+            <br>
+            <img src="kaytto6.png"><br>
+            <br>
+            Uusi salasana on listassa viimeisenä.<br>
+            <br>
+            <img src="kaytto7.png"><br>
+
+       </p>
+       <br>
+       <p>
+            <h3 id="kayttaminen">KeePass tietokannan käyttäminen</h3>
+            Kun haluat saada tallennetut salasanat käyttöösi, toimi näin:<br>
+            <br>
+            Avaa KeePass. Syötä Master Password ja klikkaa OK.<br>
+            <br>
+            <img src="kaytto8.png"><br>
+            <br>
+            Tietokanta avautuu. Voit avata tiedoston kaksoisklikkaamalla,<br>
+            <br>
+            <img src="kaytto9.png"><br>
+            <br>
+            Hiiren kakkospainikkeella voi kopioida salasanan. <b>Salasana katoaa leikepöydältä 12 sekunnissa.</b><br>
+            <br>
+            <img src="kaytto10.png">
+       </p>
+    </div>
+    <div class="footer">
+      <p>Tekijä: Leena Pasanen <br>
+         
+  </div>
+
+    
+</body>
+
+<script>
+    function scrollToSection(id){
+  
+  id = id.replace("link", "");
+ 
+  $('html,body').animate({
+    scrollTop: $("#"+id).offset().top},
+    'slow');
+}
+
+var mybutton = document.getElementById("myBtn");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 180 || document.documentElement.scrollTop > 180) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+</script>
+
+</html>

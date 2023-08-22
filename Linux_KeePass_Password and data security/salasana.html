@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Linux - salasanoista</title>
+    <link rel="stylesheet" type="text/css" href="linux_tyylit.css">
+</head>
+<body>
+    <button onclick="topFunction()" id="myBtn" title="Go to top">^</button>
+    <div class="header">
+        <h1>Keepass - salasanat ja tietoturva Linuxissa</h1>
+    </div>
+
+    <div class="topnav">
+        <a href="etusivu.html">Etusivu</a>
+        <a href="tietoturva.html">Tietoturva</a>
+        <a class="active" href="salasana.html">Salasanat haltuun</a>
+        <a href="asennus.html">KeePass asennus</a>
+        <a href="kaytto.html">KeePass käyttö</a>
+        <a href="vaihtoehto.html">TOP5 KeePass vaihtoehdot</a>
+        <a href="lahteet.html">Lähteet</a>
+    </div>
+
+    <div class="subnav">
+        <a href="#vaihto">Root-salasanan vaihto</a>
+        <a href="#palautus">Root-salasanan palautus Ubuntussa</a>
+    </div>
+
+    <div class="content">
+        <p><h3>Hyvä salasana:</h3>
+            <ul>
+                <li>on pitkä, nyrkkisääntönä 15 merkkiä</li>
+                <li>ei ennalta arvattava (salasana123, qwerty, password)</li>
+                <li>ei koostu pelkistä sanakirjasanoista</li>
+                <li>mieluummin lause kuin sana</li>
+                <li>sisältää erikoismerkkejä; %&//()=</li>
+                <li>käytössä vain yhdessä palvelussa</li>
+                <li>vaihda säännöllisesti</li>
+            </ul>
+        </p> 
+        <br>  
+        <p>       
+            <h3 id="vaihto">Ohje Root- salasanan vaihtamiseen Ubuntussa</h3>
+            <ol>
+                <li>Avaa terminaali</li>
+                <li>Syötä terminaaliin pääsalasanasi vaihtokomento</li>
+            </ol>
+                    
+            <b>sudo passwd root</b><br>
+            <br>
+            Järjestelmä kehottaa sinua syöttämään salasanasi - tämä on sama salasana, jota käytät kirjautuessasi järjestelmään.<br>
+            <br>
+            Seuraavaksi järjestelmä pyytää sinua syöttämään uusi salasana kahteen kertaan.  Tämä kaksinkertainen merkintä vahvistaa, 
+            että olet kirjoittanut salasanan oikein.<br>
+            <img src="rootsalasana.png">
+        </p>  
+        <br> 
+        <p>
+            <h3 id="palautus">Ohje Root- salasanan palauttamiseen Ubuntussa</h3>
+            Joissakin tilanteissa saattaa joutua käyttämään tiliä, jonka salasana on kadonnut tai unohtunut. Tällöin joudutaan vaihtamaan pääkäyttäjän salasana, 
+            jotta mm. ohjelmien asennus ja päivitysten tekeminen onnistuu.<br>
+            <br>
+            Salasanan palauttaminen Ubuntussa onnistuu kolmessa yksinkertaisessa vaiheessa: 
+            <ol>
+                <li>Koneen BIOS-käynnistysvaiheessa tulee pitää SHIFT-näppäintä pohjassa, jolloin pääsee valikkoon, josta voi valita vikakorjaustilan <b>(Recovery Mode)</b>. 
+                    Seuraavasta valikosta tulee valita vaihtoehto, jolla pääsee pääkäyttäjänä komentokehoitteeseen joskin vielä ainoastaan lukutilassa.</li>
+                <li>Komennolla <b>mount -o rw,remount /</b> saa uudelleenmountattua tiedostojärjestelmän siten, että käyttäjällä on kirjoitusoikeus sen tiedostoihin. </li>
+                <li>Seuraavaksi syötetään tuttu komento <b>passwd uname</b> esim. passwd root, jonka jälkeen päästään syöttämään uusi UNIX-salasana kahteen kertaan 
+                    ja vaihtamaan salasanaa. </li>
+            </ol>
+            Seuraavan kerran kun kone käynnistetään normaalisti, pääsee uudella salasanalla kirjautumaan. 
+        </p>    
+                 
+    </div>
+    <div class="footer">
+        <p>Tekijä: Leena Pasanen <br>
+    </div>
+</body>
+
+<script>
+    function scrollToSection(id){
+ 
+  id = id.replace("link", "");
+  
+  $('html,body').animate({
+    scrollTop: $("#"+id).offset().top},
+    'slow');
+}
+
+var mybutton = document.getElementById("myBtn");
+
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 180 || document.documentElement.scrollTop > 180) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+</script>
+
+</html>
